@@ -44,49 +44,7 @@ namespace Solution
             //0. ���ҧ��ǧ�
             while (isAlive)
             {
-                LinkedListNode<GameObject> firstNode = Parade.First;
-                GameObject firstPart = firstNode.Value;
-
-                LinkedListNode<GameObject> lastNode = Parade.Last;
-                GameObject lastPart = lastNode.Value;
-                
-                Parade.RemoveLast();
-
-                int toX = 0;
-                int toY = 0;
-
-                bool isCollide = true;
-                int countTryFind = 0;
-
-                while(isCollide == true || countTryFind > 10)
-                {
-                    moveDirection = RandomizeDirection();
-                    toX = (int)(firstPart.transform.position.x + moveDirection.x);
-                    toY = (int)(firstPart.transform.position.y + moveDirection.y);
-                    countTryFind++;
-                    if(countTryFind > 10)
-                    {
-                       toX = positionX;
-                       toY = positionY; 
-                    }
-                    isCollide = IsCollision(toX,toY);
-                }
-
-                positionX = toX;
-                positionY = toY;
-                lastPart.transform.position = new Vector3(positionX,positionY,0);
-
-                Parade.AddFirst(lastNode);
-
-                if(Parade.Count < SizeParade)
-                {
-                    timer++;
-                    if(timer > 3)
-                    {
-                        Grow();
-                        timer = 0;
-                    }
-                }
+               
                 yield return new WaitForSeconds(moveInterval);
             }
         }
