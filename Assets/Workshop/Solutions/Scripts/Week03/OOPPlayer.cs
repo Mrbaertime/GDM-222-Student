@@ -63,7 +63,7 @@ namespace Solution
                     count = enemies.Length;
                 }
                 for (int i = 0; i < count; i++)
-                {
+                { 
                     enemies[i].TakeDamage(10);
                 }
             }

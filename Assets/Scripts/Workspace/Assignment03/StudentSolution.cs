@@ -112,7 +112,42 @@ namespace Assignment03
 
         public void LCT03_SyntaxDictionary()
         {
-            throw new System.NotImplementedException();
+            Dictionary<int, string> dict = new Dictionary<int, string>();
+
+            dict.Add(1, "Apple");
+            dict.Add(2, "Banana");
+            dict[3] = "Cherry";
+
+            LCT03_PrintDictionary(dict);
+
+            int keyToCheck = 1;
+            bool hasKey = dict.ContainsKey(keyToCheck);
+            Debug.Log ($"has key {keyToCheck}: {hasKey}");
+            if (hasKey)
+            {
+                string value = dict[keyToCheck];
+                Debug.Log($"value of key {keyToCheck} ({value})");
+            }
+
+            Debug.Log($"All key in dict");
+            foreach (int key in dict.Keys)
+            {
+                Debug.Log(key);
+            }
+
+            int keytoremove = 1;
+            dict.Remove(keytoremove);
+            LCT03_PrintDictionary(dict);
+            dict.Clear();
+        }
+
+        private void LCT03_PrintDictionary(Dictionary<int, string> dict)
+        {
+            Debug.Log($"Dictionary has {dict.Count}" );
+            foreach(KeyValuePair<int, string> kvp in dict)
+            {
+                Debug.Log($"Key: {kvp.Key}, Value: {kvp.Value}");
+            }
         }
 
         #endregion
