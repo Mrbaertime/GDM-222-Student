@@ -205,12 +205,31 @@ namespace Assignment03
 
         public void EX01_GameEventQueue(LinkedList<GameEvent> eventQueue)
         {
-            throw new System.NotImplementedException();
+            if (eventQueue.Count == 0)
+            {
+                Debug.Log("No Event in Queue");
+                return;
+            }
+
+            GameEvent currentEvent = eventQueue.First.Value;
+
+            Debug.Log("Processing Event: " + currentEvent);
+
+            eventQueue.RemoveFirst();
         }
 
         public void EX02_PlayerStatsTracker(Dictionary<string, int> playerStats, string statName, int value)
         {
-            throw new System.NotImplementedException();
+            if (playerStats.ContainsKey(statName))
+            {
+                playerStats[statName] += value; 
+            }
+            else
+            {
+                playerStats.Add(statName, value);
+            }
+
+            Debug.Log(statName + " = " + playerStats[statName]);
         }
 
         #endregion
